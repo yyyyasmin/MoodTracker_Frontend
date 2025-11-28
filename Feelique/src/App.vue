@@ -15,6 +15,7 @@ import MoodList from './components/MoodList.vue'
   </div>
 </template>
 
+
 <style scoped>
 .app-container {
   max-width: 800px;
