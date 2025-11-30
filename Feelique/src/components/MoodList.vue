@@ -5,16 +5,17 @@ const moods = ref([])
 const loading = ref(false)
 const error = ref(null)
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+
 async function fetchMoods() {
   loading.value = true
   error.value = null
 
   try {
-    const response = await fetch('http://localhost:8080/api/moods')
+    const response = await fetch(`${API_BASE_URL}/api/moods`)
     if (!response.ok) {
       throw new Error(`HTTP-Fehler: ${response.status}`)
     }
-
     const data = await response.json()
     moods.value = data
   } catch (err) {
